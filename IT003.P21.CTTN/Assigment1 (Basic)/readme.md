@@ -1,13 +1,11 @@
-**Solution Assignment 1**
-
----
+# Solution Assignment 1
 
 Họ và tên: Hà Bùi Trọng Nghĩa<br>
 MSSV: 24520020<br>
 Lớp: KHTN2024
 
 ---
-*VQ44_FLOWERS*
+### VQ44_FLOWERS
 
 Đề bài:
 
@@ -43,9 +41,8 @@ int main()
     return 0;
 }
 ```
----
 
-*Point2D*
+### Point2D
 
 Đề bài:
 
@@ -83,6 +80,5 @@ int32_t main()
 }
 ```
 
----
 
 
