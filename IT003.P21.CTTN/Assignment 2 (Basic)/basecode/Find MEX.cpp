@@ -1,0 +1,66 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int n;
+vector < int > vi;
+
+bool cmp(int a, int b)
+{
+    return a < b;
+}
+
+mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+int rand(int l, int r) {
+	return uniform_int_distribution<int>(l, r)(rng);
+}
+
+int partition(int low, int high) {
+
+    int rnd = rand(low, high);
+    swap(vi[rnd], vi[high]);
+
+    int pivot = vi[high];
+    int i = low - 1;
+    for (int j = low; j <= high - 1; j++) {
+        if (cmp(vi[j], pivot)) {
+            i++;
+            swap(vi[i], vi[j]);
+        }
+    }
+    swap(vi[i + 1], vi[high]);
+    return i + 1;
+}
+
+void kps(int low, int high) {
+
+    if (low < high) {
+        int pi = partition(low, high);
+        kps(low, pi - 1);
+        kps(pi + 1, high);
+    }
+}
+
+int32_t main()
+{
+    ios_base::sync_with_stdio(0);
+    cin.tie(0); cout.tie(0);
+    srand(time(NULL));
+    cin >> n;
+    int x;
+    vi.push_back(0);
+    for (int i = 1 ; i <= n ; ++i)
+    {
+        cin >> x;
+        vi.push_back(x);
+    }
+    vi.push_back(0);
+    kps(1, n);
+    int mex = 0;
+    for (int i = 1 ; i <= n ; ++i)
+    {
+        if (mex == vi[i]) mex++;
+    }
+    cout << mex;
+    return 0;
+}
