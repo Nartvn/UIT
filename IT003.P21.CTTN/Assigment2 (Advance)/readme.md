@@ -67,3 +67,4 @@ Bài này được công thức ```(n*2-1)Cn```. Dùng lucas theory để giải
 
 
 
+
